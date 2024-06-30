@@ -1,0 +1,12 @@
+
+
+body {
+  background-color: pink; /* light pink background */
+}
+
+h1 {
+  color: white; /* white text color */
+  font-size: 3em; /* make the font size larger */
+  display: flex;
+  justify-content: center; /* center horizontally */
+}
