@@ -2,10 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Foodie friends</title>
 </head>
 <body>
-   <h1>Foodie friends</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('protected') }}">Protected area</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <h1>Foodie friends</h1>
+    {% if current_user.is_authenticated %}
+    <p>Welcome, {{ current_user.username }}!</p>
+    {% endif %}
+    <main>
+          <p>Auf dieser Website ist es euch möglich neue Rezepte zu finden und auszuprobieren. Ihr könnt auch eure eigenen Rezepte mit anderen teilen.
+             Loggt euch dazu einfach ein und los geht's! <p>
+          <div class="image-row">
+            <img src="{{ url_for('static', filename='erdbeeren.jpg') }}">
+            <img src="{{ url_for('static', filename='fleisch.jpg') }}">
+            <img src="{{ url_for('static', filename='salat.jpg') }}">
+          </div>
+
+          <h2>Über uns</h2>
+            <p>Willkommen bei Foodie Friends, der ultimativen Plattform für alle, die gutes Essen lieben! Wir sind eine Gemeinschaft von Feinschmeckern, die ihre Leidenschaft für kulinarische Erlebnisse teilen und gemeinsam neue Geschmackshorizonte entdecken möchten.</p>
+            <p>Unsere Mission ist es, Menschen durch die Freude am Essen zusammenzubringen. Egal, ob du ein erfahrener Koch, ein ambitionierter Anfänger oder einfach nur jemand bist, der gerne neue Restaurants und Gerichte ausprobiert – bei Foodie Friends bist du genau richtig.</p>
+            <p>Wir bieten eine Vielzahl von Ressourcen, darunter Rezepte, Restaurantbewertungen, kulinarische Reiseberichte und vieles mehr. Unser Ziel ist es, dir zu helfen, deine Kochkünste zu verbessern, neue Lieblingsrestaurants zu finden und dich mit anderen Foodies zu vernetzen.</p>
+            <p>Bei Foodie Friends glauben wir daran, dass Essen mehr als nur eine Notwendigkeit ist – es ist ein Erlebnis, das Menschen zusammenbringt und unvergessliche Erinnerungen schafft. Wir laden dich ein, Teil unserer Community zu werden und gemeinsam mit uns die wunderbare Welt des Essens zu erkunden.</p>
+            <p>Folge uns auf unserer Reise und teile deine eigenen kulinarischen Entdeckungen mit uns. Wir freuen uns darauf, dich kennenzulernen!</p>
+      
+    <main>
 </body>
 </html>

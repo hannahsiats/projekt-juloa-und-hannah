@@ -1,0 +1,10 @@
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 3em;
+}
+body {
+      background-color: pink;
+      text-algin: center;
+      color: white;
+}
